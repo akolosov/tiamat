@@ -1,7 +1,7 @@
 <ul id="tasks_tree<%= (((@tasks.empty?) or (@tasks.first.parent_id == nil)) ? '' : '_'+@tasks.first.id.to_s) %>">
 <% for task in @tasks do %>
-  <li<%= (task.is_done ? " class='strike'" : "") %>>
-  <%= check_box_tag('task_done', task.is_done, task.is_done, {:disabled => true}) %>
+  <li>
+  <%= check_box_tag('task_done_'+task.id.to_s, task.is_done, task.is_done, {:disabled => true}) %>
   <%= raw link_to(task.name, :controller => 'tasks', :action => 'show', :id => task.id) %>
   <% if not task.childs.empty? then %>
     <%= render_tasks_as(task.childs, 'tree', true) %>

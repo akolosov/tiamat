@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     respond_to do |format|
       if @user = login(params[:email],params[:password],params[:remember])
-        format.html { redirect_back_or_to(:users, :notice => 'Login successfull.') }
+        format.html { redirect_back_or_to(:root, :notice => 'Login successfull.') }
         format.json { render :json => @user, :status => :created, :location => @user }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
