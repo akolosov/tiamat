@@ -1,0 +1,27 @@
+<h1>Listing task_contexts</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @task_contexts.each do |task_context| %>
+  <tr>
+    <td><%= task_context.user_id %></td>
+    <td><%= task_context.name %></td>
+    <td><%= task_context.description %></td>
+    <td><%= link_to 'Show', task_context %></td>
+    <td><%= link_to 'Edit', edit_task_context_path(task_context) %></td>
+    <td><%= link_to 'Destroy', task_context, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task context', new_task_context_path %>

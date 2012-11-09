@@ -1,0 +1,9 @@
+<ul>
+<% for task_context in @task_contexts do %>
+  <li>
+  <%= raw link_to(h("#{task_context.name} (#{task_context.description})"), :controller => 'task_contexts', :action => 'show', :id => task_context.id) %>
+  <%= raw '|' + link_to('edit task_context', edit_task_context_path(task_context)) %>
+  <%= raw '|' + link_to('del task_context', task_context, :confirm => 'Are you sure?', :method => :delete) %>
+  </li>
+<% end %>
+</ul>

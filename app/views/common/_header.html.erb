@@ -1,0 +1,28 @@
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Tiamat</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><%= link_to 'Folders', folders_path %></li>
+              <li class="active"><%= link_to 'Projects', projects_path %></li>
+              <li class="active"><%= link_to 'Tasks', tasks_path %></li>
+              <li class="active"><%= link_to 'Contexts', task_contexts_path %></li>
+              <li class="active"><%= link_to 'Tags', tags_path %></li>
+            </ul>
+            <p class="navbar-text pull-right">
+              <% if current_user %>
+              Logged in as <%= link_to current_user.name, current_user %> <%= link_to "logout", :logout, :class => "btn btn-primary"  %>
+              <% else %>
+              <%= link_to 'Login', :login , :class => "btn btn-primary" %> or <%= link_to 'Sign up', new_user_path  , :class => "btn btn-success"  %>
+              <% end %>
+            </p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>

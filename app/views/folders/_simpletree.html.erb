@@ -1,0 +1,10 @@
+<ul id="folders_tree<%= (((@folders.empty?) or (@folders.first.parent_id == nil)) ? '' : '_'+@folders.first.id.to_s) %>">
+<% for folder in @folders do %>
+  <li>
+  <%= raw link_to(folder.name, :controller => 'tasks', :action => 'filter', :type => 'folder', :id => folder.id) %>
+  <% if not folder.childs.empty? then %>
+    <%= render_folders_as(folder.childs, 'tree', true) %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

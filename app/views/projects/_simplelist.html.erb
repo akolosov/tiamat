@@ -1,0 +1,7 @@
+<ul>
+<% for project in @projects do %>
+  <li>
+  <%= raw link_to(project.name, :controller => 'tasks', :action => 'filter', :type => 'project', :id => project.id) %>
+  </li>
+<% end %>
+</ul>

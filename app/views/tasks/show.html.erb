@@ -1,0 +1,86 @@
+<% if @task.parent_id %>
+<p>
+  <b>Parent:</b>
+  <%= @task.parent.name %>
+</p>
+<% end %>
+
+<% if @task.user_id %>
+<p>
+  <b>User:</b>
+  <%= @task.user.name %>
+</p>
+<% end %>
+
+<% if @task.project_id %>
+<p>
+  <b>Project:</b>
+  <%= @task.project.name %>
+</p>
+<% end %>
+
+<% if @task.folder_id %>
+<p>
+  <b>Folder:</b>
+  <%= @task.folder.name %>
+</p>
+<% end %>
+
+<% if @task.task_context_id %>
+<p>
+  <b>Context:</b>
+  <%= @task.task_context.name %>
+</p>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%= @task.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @task.description %>
+</p>
+
+<p>
+  <b>Due day:</b>
+  <%= @task.due_day %>
+</p>
+
+<p>
+  <b>Is important:</b>
+  <%= @task.is_important %>
+</p>
+
+<p>
+  <b>Is done:</b>
+  <%= @task.is_done %>
+</p>
+
+<% if not @task.tags.empty? %>
+<p>
+  <b>Tags:</b>
+  <% @task.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
+
+<br />
+
+<% if not @task.childs.empty? %>
+  <h1>SubTasks tree</h1>
+
+  <%= render_tasks_as(@task.childs, 'tree') %>
+
+  <script>
+    $(document).ready(function(){
+      $("#tasks_tree<%= (((@task.childs.empty?) or (@task.childs.first.parent_id == nil)) ? '' : '_'+@task.childs.first.id.to_s) %>").showTree();
+    });
+  </script>
+<% end %>

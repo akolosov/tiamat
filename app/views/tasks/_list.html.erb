@@ -1,0 +1,12 @@
+<ul>
+<% for task in @tasks do %>
+  <li<%= (task.is_done ? " class='strike'" : "") %>>
+  <%= check_box_tag('task_done', task.is_done, task.is_done, {:disabled => true}) %>
+  <%= raw link_to(h("#{task.name} (#{task.description})"), :controller => 'tasks', :action => 'show', :id => task.id) %>
+  <%= raw '|' + link_to('edit task', edit_task_path(task)) %>
+  <%= raw '|' + link_to('del task', task, :confirm => 'Are you sure?', :method => :delete) %>
+  <%= raw '|' + link_to('add subtask', :controller => 'tasks', :action => 'child', :id => task.id) %>
+  </li>
+<% end %>
+</ul>
+ 

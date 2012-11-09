@@ -1,0 +1,38 @@
+<% if @folder.parent_id %>
+<p>
+  <b>Parent:</b>
+  <%= @folder.parent.name %>
+</p>
+<% end %>
+
+<% if @folder.user_id %>
+<p>
+  <b>User:</b>
+  <%= @folder.user.name %>
+</p>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%= @folder.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @folder.description %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @folder.is_default %>
+</p>
+
+<p>
+  <b>Is system:</b>
+  <%= @folder.is_system %>
+</p>
+
+
+<%= link_to 'Edit', edit_folder_path(@folder) %> |
+<%= link_to 'SubFolder', subfolder_path(@folder.id) %> |
+<%= link_to 'Back', folders_path %>

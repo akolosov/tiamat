@@ -1,0 +1,7 @@
+<ul>
+<% for tag in @tags do %>
+  <li>
+  <%= raw link_to(tag.name, :controller => 'tasks', :action => 'filter', :type => 'tag', :id => tag.id) %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  parent_id: 1
+  user_id: 1
+  name: MyString
+  description: MyText
+  due_at: 2011-10-13 15:46:08
+  is_closed: false
+
+two:
+  parent_id: 1
+  user_id: 1
+  name: MyString
+  description: MyText
+  due_at: 2011-10-13 15:46:08
+  is_closed: false

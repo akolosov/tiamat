@@ -1,0 +1,38 @@
+<% if @project.parent_id %>
+<p>
+  <b>Parent:</b>
+  <%= @project.parent.name %>
+</p>
+<% end %>
+
+<% if @project.user_id %>
+<p>
+  <b>User:</b>
+  <%= @project.user.name %>
+</p>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Due day:</b>
+  <%= @project.due_day %>
+</p>
+
+<p>
+  <b>Is closed:</b>
+  <%= @project.is_closed %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'SubProject', subproject_path(@project.id) %> |
+<%= link_to 'Back', projects_path %>

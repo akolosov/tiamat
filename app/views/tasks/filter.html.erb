@@ -1,0 +1,14 @@
+<h1>Tasks list</h1>
+
+
+<%= render_tasks_as(@tasks, 'tree') %>
+
+<script>
+  $(document).ready(function(){
+    $("#tasks_tree").showTree();
+  });
+</script>
+
+<br />
+
+<%= link_to 'New Task', new_task_by_path %>

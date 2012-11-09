@@ -1,0 +1,14 @@
+<h1>Tasks tree</h1>
+
+
+<%= render_tasks_as(Task.find_all_by_parent_id(nil), 'tree') %>
+
+<script>
+  $(document).ready(function(){
+    $("#tasks_tree").showTree();
+  });
+</script>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

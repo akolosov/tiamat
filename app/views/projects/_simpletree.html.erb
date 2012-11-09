@@ -1,0 +1,10 @@
+<ul id="projects_tree<%= (((@projects.empty?) or (@projects.first.parent_id == nil)) ? '' : '_'+@projects.first.id.to_s) %>">
+<% for project in @projects do %>
+  <li>
+  <%= raw link_to(project.name, :controller => 'tasks', :action => 'filter', :type => 'project', :id => project.id) %>
+  <% if not project.childs.empty? then %>
+    <%= render_projects_as(project.childs, 'tree', true) %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

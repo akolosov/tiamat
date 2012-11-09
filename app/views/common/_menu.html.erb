@@ -1,0 +1,17 @@
+<div class="span2">
+  <div class="well sidebar-nav">
+
+<strong class="menutitle"><%= link_to 'Folders', folders_path %></strong><br />
+<%= render_folders_as(Folder.find_all_by_parent_id(nil), 'tree', true) %><br />
+
+<strong class="menutitle"><%= link_to 'Projects', projects_path %></strong><br />
+<%= render_projects_as(Project.find_all_by_parent_id(nil), 'tree', true) %><br />
+
+<strong class="menutitle"><%= link_to 'Contexts', task_contexts_path %></strong><br />
+<%= render_contexts_as(TaskContext.all, 'list', true) %><br />
+
+<strong class="menutitle"><%= link_to 'Tags', tags_path %></strong><br />
+<%= render_tags_as(Tag.all, 'list', true) %><br />
+
+  </div><!--/.well -->
+</div><!--/span-->

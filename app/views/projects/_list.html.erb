@@ -1,0 +1,11 @@
+<ul>
+<% for project in @projects do %>
+  <li>
+  <%= check_box_tag('project_closed', project.is_closed, project.is_closed, {:disabled => true}) %>
+  <%= raw link_to(h("#{project.name} (#{project.description})"), :controller => 'projects', :action => 'show', :id => project.id) %>
+  <%= raw '|' + link_to('edit project', edit_project_path(project)) %>
+  <%= raw '|' + link_to('del project', project, :confirm => 'Are you sure?', :method => :delete) %>
+  <%= raw '|' + link_to('add subproject', :controller => 'projects', :action => 'child', :id => project.id) %>
+  </li>
+<% end %>
+</ul>

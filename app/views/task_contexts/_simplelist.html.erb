@@ -1,0 +1,7 @@
+<ul>
+<% for task_context in @task_contexts do %>
+  <li>
+  <%= raw link_to(task_context.name, :controller => 'tasks', :action => 'filter', :type => 'context', :id => task_context.id) %>
+  </li>
+<% end %>
+</ul>

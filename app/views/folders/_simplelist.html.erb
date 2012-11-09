@@ -1,0 +1,7 @@
+<ul>
+<% for folder in @folders do %>
+  <li>
+  <%= raw link_to(folder.name, :controller => 'folders', :action => 'show', :id => folder.id) %>
+  </li>
+<% end %>
+</ul>

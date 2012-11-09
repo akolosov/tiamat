@@ -1,0 +1,15 @@
+<ul id="folders_tree<%= (((@folders.empty?) or (@folders.first.parent_id == nil)) ? '' : '_'+@folders.first.id.to_s) %>">
+<% for folder in @folders do %>
+  <li>
+  <%= raw link_to(h("#{folder.name} (#{folder.description})"), :controller => 'folders', :action => 'show', :id => folder.id) %>
+  <% if !folder.is_system %>
+    <%= raw '|' + link_to('edit folder', edit_folder_path(folder)) %>
+    <%= raw '|' + link_to('del folder', folder, :confirm => 'Are you sure?', :method => :delete) %>
+  <% end %>
+  <%= raw '|' + link_to('add subfolder', :controller => 'folders', :action => 'child', :id => folder.id) %>
+  <% if not folder.childs.empty? then %>
+    <%= render_folders_as(folder.childs, 'tree', false) %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

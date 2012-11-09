@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  parent_id: 1
+  user_id: 1
+  project_id: 1
+  folder_id: 1
+  context_id: 1
+  name: MyString
+  description: MyText
+  condition: MyString
+  due_day: 2011-10-13
+  is_done: false
+  is_important: false
+
+two:
+  parent_id: 1
+  user_id: 1
+  project_id: 1
+  folder_id: 1
+  context_id: 1
+  name: MyString
+  description: MyText
+  condition: MyString
+  due_day: 2011-10-13
+  is_important: false
+  is_done: false
