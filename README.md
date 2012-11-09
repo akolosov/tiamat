@@ -12,7 +12,7 @@ Tiamat
 
 (C)opyLeft & (C)odeRight Alexey Kolosov aka mr.huNTer <alexey.kolosov@gmail.com>
 
-"StoreFront" released without warranty under the terms of the Artistic License 2.0
+"Tiamat" released without warranty under the terms of the Artistic License 2.0
 http://www.opensource.org/licenses/artistic-license-2.0
 
 
