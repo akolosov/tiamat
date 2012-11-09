@@ -1,46 +1,13 @@
-<%= form_for(@task) do |f| %>
-  <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.select(:parent_id, Task.all.collect {|t| [ "#{t.name} (#{t.description})", t.id ] }, {:include_blank => '----'}) %>
-  </div>
+<%= simple_form_for @task do |f| %>
   <%= f.hidden_field :user_id %>
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.select(:project_id, Project.all.collect {|p| [ "#{p.name} (#{p.description})", p.id ] }, {:include_blank => '----'}) %>
-  </div>
-  <div class="field">
-    <%= f.label :folder_id %><br />
-    <%= f.select(:folder_id, Folder.all.collect {|t| [ "#{t.name} (#{t.description})", t.id ] }, {:include_blank => false}) %>
-  </div>
-  <div class="field">
-    <%= f.label :task_context_id %><br />
-    <%= f.select(:task_context_id, TaskContext.all.collect {|c| [ "#{c.name} (#{c.description})", c.id ] }, {:include_blank => '----'}) %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :due_day %><br />
-    <%= f.date_select :due_day %>
-  </div>
-  <div class="field">
-    <%= f.label :is_important %><br />
-    <%= f.check_box :is_important %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br />
-    <% Tag.all.each do |tag| %>
-      <%= check_box_tag :tag_ids, tag.id, @task.tags.include?(tag), :name => 'task[tag_ids][]' %>
-      <%= label_tag :tag_ids, tag.name %>
-    <% end %>
-    <%= hidden_field_tag "task[tag_ids][]" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.association :parent %>
+  <%= f.association :project %>
+  <%= f.association :folder, :include_blank => false %>
+  <%= f.association :task_context %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :due_day %>
+  <%= f.input :is_important %>
+  <%= f.association :tags, :as => :check_boxes %>
+  <%= f.button :submit %>
 <% end %>

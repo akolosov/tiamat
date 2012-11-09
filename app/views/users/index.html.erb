@@ -19,12 +19,9 @@
         <td>
          <div class="btn-group">
 	  <%= link_to 'Show', user, :class => 'btn btn-info btn-mini' if current_user.is_user_of? User %>
-	  <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-primary btn-mini' if current_user.is_manager_of? User %>
-	  <%= link_to 'Props', user_properties_path(user), :class => 'btn btn-info btn-mini' if current_user.is_manager_of? User %>
-	  <% if current_user.is_admin_of? :any %>
-	    <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') %>
-	    <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a><%= render user %>
-	  <% end %>
+	  <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-primary btn-mini' if current_user.is_user_of? User %>
+	  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') %>
+	  <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a><%= render user %>
 	 </div>
 	</td>
     </tr>

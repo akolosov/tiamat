@@ -1,10 +1,5 @@
-<%= form_for(@tag) do |f| %>
+<%= simple_form_for @tag do |f| %>
   <%= f.hidden_field :user_id %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :name %>
+  <%= f.button :submit %>
 <% end %>

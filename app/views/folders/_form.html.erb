@@ -1,26 +1,9 @@
-<%= form_for(@folder) do |f| %>
-  <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.select(:parent_id, Folder.all.collect {|p| [ "#{p.name} (#{p.description})", p.id ] }, {:include_blank => '----'}) %>
-  </div>
+<%= simple_form_for @folder do |f| %>
+  <%= f.association :parent %>
   <%= f.hidden_field :user_id %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :is_default %><br />
-    <%= f.check_box :is_default %>
-  </div>
-  <div class="field">
-    <%= f.label :is_system %><br />
-    <%= f.check_box :is_system %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :is_default %>
+  <%= f.input :is_system %>
+  <%= f.button :submit %>
 <% end %>
